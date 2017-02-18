@@ -27,3 +27,31 @@ C++，因为支持分离式编译，区别变量的定义和声明
   void *p  可以指向任何对象
 6.预处理命令
   预处理命令是在进行编译之前运行的一段程序，可以进行一些字符串的处理
+7.const 
+  顶层const：顶层const用于限定本身是不是常量，引用没有顶层const
+  eg. const int i = 0; int * const p1 = &i;
+  底层const: 底层const用于限定指向的对象是不是常量，修饰引用的const均为底层const
+  eg. const int &r = i;const int * p2 = &i;
+  指向常量的指针，指向常量的引用均为底层const，常量指针为顶层const，
+  拷贝通常于底层const 有关系，或者说数据类型可以转化为相同的类型，通常情况下变量可以转变为常量
+  因此，指向常量的指针，指向常量的引用可以用常量，或者变量赋值，但是普通的指针，引用不能用使用常量来进行赋值
+  指向常量的指针，指向常量的引用通常是自以为不能改变所指向的对象的值，所指向对象的值是否可以改变并不重要，所以所指向的对象可以是变量也可以是常量
+  指针常量使用的顶层const，指针就是一个普通的变量，所以指针常量值得的事指针的值，即所指对象的地址不能发生变化，所以指针常量（顶层const）在拷贝的时候
+  并不用关系右值是否为常量
+8.typedef auto decltype
+  typedef用于定义类型的别名
+  typedef int INT,*POINTER
+  INT i;  int i;
+  POINTER i; int *i;
+  const POINTER i; int *const i;
+  auto 是让编译器根据表达式的类型来确定类型
+  decltype 根据表达式返回值来确定类型
+
+9.#INDEF #INNDEF #DEFINE #ENDIF
+  这些命令是预处理命令用来保护头文件，当预处理程序处理#include<string>,预处理命令回去加载string头文件，
+  #INDEF STRING  // 检查是否定义了STRING
+  #DEFINE STRING // 没有定义择定一STRING
+  '''''string code''''' // string 实现code
+  #ENDIF //加载结束
+  避免string.h多次加载
+  

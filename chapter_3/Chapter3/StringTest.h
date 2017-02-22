@@ -6,12 +6,23 @@
 #define CHAPTER3_STRINGTEST_H
 
 #include <string>
+#include <iostream>
 
-typedef std::string String
+using std::cout;
+using std::cin;
+using std::endl;
+
+typedef std::string String;
 
 class StringTest {
-private:
+public:
+    void inputString();
+    void inputWord();
+    void compareWord();
+    void link_word();
+    void handleString();
 };
+
 
 
 #endif //CHAPTER3_STRINGTEST_H

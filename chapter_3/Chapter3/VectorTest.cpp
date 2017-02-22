@@ -14,6 +14,31 @@ void VectorTest::test_int_vector() {
     for(; begin != end; begin++){
         cout << *begin << endl;
     }
+
+    int i = 0;
+    int_vector.clear();
+    while (i != -1 ){
+        cout << "input number" << endl;
+        cin >> i;
+        if(i == -1){
+            continue;
+        }
+        int_vector.push_back(i);
+    }
+    begin = int_vector.begin();
+    end = int_vector.end();
+    cout << *begin << endl;
+
+    for (; begin != end-1; begin++){
+        cout << "sum:" << *begin + *(begin + 1) << endl;
+    }
+
+    begin = int_vector.begin();
+    end = int_vector.end();
+    cout << "============================";
+    for (; end - begin >= 2; begin++, end--){
+        cout << "sum:" << *begin + *end << endl;
+    }
 }
 
 void VectorTest::test_string_vector() {
@@ -24,6 +49,8 @@ void VectorTest::test_string_vector() {
     for (; begin != end; begin++){
         cout << *begin << endl;
     }
+
+
 }
 
 

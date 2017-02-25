@@ -1,0 +1,10 @@
+chapter_5
+switch 的case语句中不能直接定义变量，需用{} 放在block中
+for 中初始化即第一部分可以定义多个对象，但是只能有一条声明语句，就是说只能有一种对象类型
+exception
+exception.h 定义了最通用的exception
+stdexcept.h 定义几种常用异常
+new.h 定义了bad_alloc异常
+typeinfo.h 定义了bad_cast 异常
+stdexcpt.h中定义的异常需要使用字符串来初始化，其他异常只能使用默认初始化方式
+exception 提供what方法，负责显示类型message

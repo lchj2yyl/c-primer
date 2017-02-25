@@ -11,3 +11,13 @@
   ++i 为左值表达式 返回的为一个地址 即 i = i + 1 ; return i;
   i++ 为右值表达式 返回的为一个常量 即 int temp = i; i = i + 1; return temp; 临时变量不能作为左值
   http://www.cnblogs.com/zpcdbky/p/5275959.html
+2.类型转换
+  隐式转换：
+  数组可以转换成指针
+  非常量可以转换成常量 常量不能转成指针
+  从算数类型转换成布尔值 非0则为true
+  显示转换：任何明确定义的类型，只要不包含底层const就可以进行static_cast （原因可能是怕丢失const）
+  static_cast static_cast<int>(i)
+  const_cast:用于去除底层const
+  若底层const的指针指向的是一个常量，去除底层const之后依然无法改变常量的值
+  reinterpert_cast:static_cast 只是将一些隐式转换显示化了，reintepret_cast 可以在任意类型之间进行转换（不包含底层const)
